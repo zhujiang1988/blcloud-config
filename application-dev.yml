@@ -41,7 +41,7 @@ redis:
 ribbon:
   eager-load:
     enabled: true
-    clients: blcloud-auth,blcloud-user-service
+    clients: panda-auth,panda-user-service
   Httpclient:
     enabled: true
   OkHttp:
