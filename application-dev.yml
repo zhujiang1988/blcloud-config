@@ -1,15 +1,10 @@
-eureka:
-  client:
-    service-url:
-      defaultZone: http://eureka7001.com:7001/eureka/
-
 server:
   tomcat:
     max-threads: 500 # Maximum amount of worker threads.
     min-spare-threads: 50 # Minimum amount of worker threads
 spring:
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/cloud?useUnicode=true&characterEncoding=UTF8&useSSL=false&autoReconnect=true
+    url: jdbc:mysql://localhost:3306/cloud?useUnicode=true&characterEncoding=UTF8&useSSL=false&autoReconnect=true
     driver-class-name: com.mysql.jdbc.Driver
     username: root
     password: 123456
@@ -22,15 +17,17 @@ spring:
     hikari:
       minimum-idle: 0
   redis:
-    host: 192.168.3.22
+    host: 47.102.120.60
+    #host: panda-redis
     port: 6379
-    
-
+    password: x19961010
+    timeout: 10000
   rabbitmq:
-    host: 127.0.0.1
+    host: 47.102.120.60
+    #host: panda-rabbitmq
     port: 5672
-    username: guest
-    password: guest
+    username: admin
+    password: admin
   http:
     multipart:
       max-file-size: 1000MB
@@ -78,3 +75,11 @@ hystrix:
         isolation:
           thread:
             timeoutInMilliseconds: 60000
+
+#关闭验证
+management:
+  metrics:
+    web:
+      server:
+        auto-time-requests: false
+
